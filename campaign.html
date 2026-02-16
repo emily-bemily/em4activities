@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+  <style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{--teal:#4cb7a5;--blue:#5da8ff;--green:#7cc77e;--purple:#a580e2;--yellow:#f2c94c;--peach:#f4b79f;--dark:#1c1c1c;--cream:#fffdf7;--white:#ffffff;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+  ::-webkit-scrollbar{width:14px;}
+  ::-webkit-scrollbar-track{background:var(--yellow);}
+  ::-webkit-scrollbar-thumb{background:var(--purple);border-radius:99px;border:3px solid var(--yellow);min-height:44px;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--teal);}
+  nav{position:sticky;top:0;z-index:200;background:var(--purple);display:flex;justify-content:space-between;align-items:center;padding:0.85rem 2.5rem;border-radius:0 0 20px 20px;border-bottom:3px solid var(--dark);}
+  .nb{text-decoration:none;display:flex;flex-direction:column;line-height:1.1;}
+  .nm{font-size:1.35rem;font-weight:900;color:var(--yellow);letter-spacing:-0.02em;}
+  .ns{font-size:0.68rem;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:0.06em;text-transform:uppercase;}
+  .nl{display:flex;gap:0.35rem;list-style:none;flex-wrap:wrap;}
+  .nl a{text-decoration:none;color:white;font-weight:700;font-size:0.78rem;padding:0.4rem 0.85rem;border-radius:99px;border:2px solid rgba(255,255,255,0.3);transition:background .15s,color .15s;}
+  .nl a:hover,.nl a.active{background:var(--yellow);color:var(--dark);border-color:var(--yellow);}
+  .btn{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.5rem;border-radius:99px;font-family:'Poppins',sans-serif;font-weight:800;font-size:.9rem;text-decoration:none;border:3px solid var(--dark);cursor:pointer;transition:transform .12s,box-shadow .12s;background:none;}
+  .btn:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--dark);}
+  .btn-dark{background:var(--dark);color:var(--yellow);}
+  .btn-white{background:white;color:var(--dark);}
+  .btn-yellow{background:var(--yellow);color:var(--dark);}
+  .btn-green{background:var(--green);color:var(--dark);}
+  .btn-teal{background:var(--teal);color:var(--dark);}
+  [contenteditable]{outline:none;border-radius:8px;transition:box-shadow .2s,background .2s;cursor:text;}
+  [contenteditable]:hover{box-shadow:0 0 0 2px rgba(93,168,255,.5);}
+  [contenteditable]:focus{box-shadow:0 0 0 3px var(--blue);background:rgba(255,255,255,.9)!important;padding:2px 4px;}
+  .etip{font-size:.62rem;font-weight:700;color:var(--blue);opacity:0;letter-spacing:.08em;text-transform:uppercase;transition:opacity .2s;margin-top:.2rem;display:block;pointer-events:none;}
+  .ew:hover .etip,.ew:focus-within .etip{opacity:1;}
+  .fi{opacity:0;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease;}
+  .fi.v{opacity:1;transform:translateY(0);}
+  footer{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:1.2rem;font-size:.78rem;}
+  footer strong{color:var(--yellow);}
+  .photo-slot{border-radius:16px;border:3px solid var(--dark);overflow:hidden;position:relative;cursor:pointer;}
+  .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photo-slot input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2;}
+  .replace-lbl{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.55);color:white;text-align:center;padding:.3rem;font-size:.63rem;font-weight:700;text-transform:uppercase;opacity:0;transition:opacity .2s;}
+  .photo-slot:hover .replace-lbl{opacity:1;}
+  @media(max-width:900px){nav{padding:.75rem 1rem;}.nl a{font-size:.7rem;padding:.3rem .6rem;}}
+  @media(max-width:580px){.nl{gap:.2rem;}.nl a{font-size:.65rem;padding:.25rem .5rem;}}
+  </style><title>Em4Activities - Campaign Updates</title>
+<style>
+.chero{background:var(--yellow);border-bottom:3px solid var(--dark);padding:3rem 2.5rem;}
+.chero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;margin-bottom:.5rem;max-width:1100px;margin-left:auto;margin-right:auto;}
+.chero p{font-size:1rem;font-weight:500;line-height:1.7;max-width:1100px;margin:0 auto;}
+.cbody{max-width:1100px;margin:0 auto;padding:3rem 2.5rem;display:grid;grid-template-columns:1fr 290px;gap:2rem;align-items:start;}
+.apbox{background:white;border-radius:20px;border:3px solid var(--dark);padding:1.5rem;margin-bottom:1.5rem;}
+.apbox h2{font-size:1rem;font-weight:800;margin-bottom:1rem;}
+.apgrid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+.ff label{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;}
+.ff input,.ff textarea{width:100%;border:3px solid var(--dark);border-radius:12px;background:var(--cream);font-family:'Poppins',sans-serif;font-size:.88rem;font-weight:500;padding:.55rem .8rem;outline:none;transition:box-shadow .15s;}
+.ff input:focus,.ff textarea:focus{box-shadow:0 0 0 3px var(--blue);}
+.ff textarea{resize:vertical;min-height:75px;}
+.ff.full{grid-column:1/-1;}
+.photo-row{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.4rem;}
+.pa{width:72px;height:72px;border-radius:10px;border:3px dashed var(--dark);display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;background:var(--cream);transition:background .15s;position:relative;flex-shrink:0;}
+.pa:hover{background:rgba(76,183,165,.25);}
+.pa input{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2;}
+.pa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:7px;display:none;}
+.feed{display:flex;flex-direction:column;gap:1.3rem;}
+.pcard{background:white;border-radius:20px;border:3px solid var(--dark);overflow:hidden;transition:transform .15s,box-shadow .15s;}
+.pcard:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--dark);}
+.phead{display:flex;align-items:center;gap:.75rem;padding:.9rem 1.2rem;border-bottom:2px solid rgba(0,0,0,.07);}
+.pav{width:34px;height:34px;border-radius:50%;border:2.5px solid var(--dark);background:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.82rem;color:white;flex-shrink:0;}
+.pmeta .pname{font-weight:800;font-size:.86rem;}
+.pmeta .pdate{font-size:.7rem;opacity:.5;font-weight:600;}
+.ptag{border-radius:99px;padding:.18rem .65rem;font-size:.68rem;font-weight:800;border:2px solid var(--dark);}
+.pbody{padding:.9rem 1.2rem;font-size:.88rem;line-height:1.72;}
+.pphotos{display:grid;gap:3px;}
+.pphotos.one{grid-template-columns:1fr;}
+.pphotos.two{grid-template-columns:1fr 1fr;}
+.pphotos.three{grid-template-columns:1fr 1fr 1fr;}
+.pphotos img{width:100%;aspect-ratio:1;object-fit:cover;display:block;}
+.empty-feed{text-align:center;padding:2.5rem;color:#999;font-weight:600;font-size:.9rem;}
+.sidebar{display:flex;flex-direction:column;gap:1.2rem;position:sticky;top:80px;}
+.next-box{background:var(--blue);border-radius:20px;border:3px solid var(--dark);padding:1.3rem;}
+.next-box h3{font-size:.95rem;font-weight:900;color:white;margin-bottom:.8rem;}
+.next-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.nitem{background:white;border-radius:12px;border:3px solid var(--dark);padding:.55rem .75rem;display:flex;align-items:center;gap:.55rem;font-size:.82rem;font-weight:600;}
+.ndot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.nadd{width:100%;border:3px dashed rgba(255,255,255,.5);border-radius:12px;background:transparent;color:white;font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;padding:.5rem;cursor:pointer;margin-top:.5rem;transition:background .15s;}
+.nadd:hover{background:rgba(255,255,255,.15);}
+@media(max-width:900px){.chero{padding:2rem 1.2rem;}.cbody{grid-template-columns:1fr;padding:2rem 1.2rem;}.apgrid{grid-template-columns:1fr;}.ff.full{grid-column:1;}.sidebar{position:static;}}
+</style></head><body><nav><a href="index.html" class="nb"><span class="nm">Em4Activities</span><span class="ns">Emily Peddle &middot; she/her</span></a><ul class="nl"><li><a href="index.html" id="n-home">Home</a></li><li><a href="about.html" id="n-about">About</a></li><li><a href="manifesto.html" id="n-manifesto">Manifesto</a></li><li><a href="experience.html" id="n-experience">Experience</a></li><li><a href="campaign.html" id="n-campaign">Campaign</a></li><li><a href="contact.html" id="n-contact">Contact</a></li></ul></nav><script>(function(){var p=(location.pathname.split('/').pop()||'index.html').replace('.html','');var el=document.getElementById('n-'+p);if(el)el.classList.add('active');})();</script>
+<div class="chero"><div style="max-width:1100px;margin:0 auto;"><h1>Campaign Updates</h1><p>Live updates from the campaign trail. Add photos, thoughts, and news as you go, updated throughout elections week.</p></div></div>
+<div class="cbody">
+  <div>
+    <div class="apbox fi"><h2>Add a campaign update</h2><div class="apgrid">
+      <div class="ff"><label>Title</label><input type="text" id="pt" placeholder="e.g. Day 1 on the Parade"/></div>
+      <div class="ff"><label>Tag</label><input type="text" id="ptg" placeholder="e.g. Campaign day"/></div>
+      <div class="ff full"><label>What is happening?</label><textarea id="pb" placeholder="Tell people what is going on, this is your space."></textarea></div>
+      <div class="ff full"><label>Add photos (up to 3)</label><div class="photo-row">
+        <div class="pa" id="pa1"><input type="file" accept="image/*" onchange="addPhoto(this,1)"/><img id="pa1i"/><span id="pa1s">+</span></div>
+        <div class="pa" id="pa2" style="display:none;"><input type="file" accept="image/*" onchange="addPhoto(this,2)"/><img id="pa2i"/><span id="pa2s">+</span></div>
+        <div class="pa" id="pa3" style="display:none;"><input type="file" accept="image/*" onchange="addPhoto(this,3)"/><img id="pa3i"/><span id="pa3s">+</span></div>
+      </div></div>
+    </div>
+    <div style="margin-top:1rem;"><button class="btn btn-dark" onclick="publishPost()">Publish update</button><button class="btn btn-white" onclick="clearForm()" style="margin-left:.5rem;">Clear</button></div>
+    </div>
+    <div class="feed" id="feed"><div class="empty-feed" id="emptyFeed">No updates yet. Add your first campaign post above!</div></div>
+  </div>
+  <div class="sidebar fi">
+    <div class="next-box">
+      <h3>What is coming next</h3>
+      <ul class="next-list" id="nextList">
+        <li class="nitem"><span class="ndot" style="background:var(--yellow);"></span><span contenteditable="true">Parade stall, 10am Tuesday</span></li>
+        <li class="nitem"><span class="ndot" style="background:var(--green);"></span><span contenteditable="true">Hustings, 2pm Wednesday</span></li>
+        <li class="nitem"><span class="ndot" style="background:var(--peach);"></span><span contenteditable="true">Voting opens Thursday</span></li>
+      </ul>
+      <button class="nadd" onclick="addNext()">+ Add upcoming event</button>
+    </div>
+  </div>
+</div><footer><strong>Em4Activities</strong> &nbsp;&middot;&nbsp; Emily Peddle &nbsp;&middot;&nbsp; University of Bath SU Elections 2026</footer>
+<script>
+var pp=Object.create(null);
+function addPhoto(input,n){var f=input.files[0];if(!f)return;var r=new FileReader();r.onload=function(e){pp[n]=e.target.result;var img=document.getElementById('pa'+n+'i');img.src=e.target.result;img.style.display='block';document.getElementById('pa'+n+'s').style.display='none';if(n<3)document.getElementById('pa'+(n+1)).style.display='flex';};r.readAsDataURL(f);}
+function publishPost(){
+  var title=document.getElementById('pt').value.trim(),tag=document.getElementById('ptg').value.trim(),body=document.getElementById('pb').value.trim();
+  if(!body){alert('Add some text to your update first!');return;}
+  var now=new Date(),ds=now.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  var photos=Object.values(pp),cls=['','one','two','three'][photos.length]||'one';
+  var ph=photos.length?'<div class="pphotos '+cls+'">'+photos.map(function(s){return '<img src="'+s+'" alt="Campaign photo"/>';}).join('')+'</div>':'';
+  var tg=tag?'<span class="ptag" style="background:var(--yellow);">'+tag+'</span>':'';
+  var ti=title?'<strong style="display:block;margin-bottom:.25rem;">'+title+'</strong>':'';
+  var card=document.createElement('div');card.className='pcard fi';
+  card.innerHTML='<div class="phead"><div class="pav">E</div><div class="pmeta"><div class="pname">Em4Activities</div><div class="pdate">'+ds+'</div></div>'+tg+'</div><div class="pbody">'+ti+body.replace(/
+/g,'<br/>')+'</div>'+ph;
+  var feed=document.getElementById('feed'),empty=document.getElementById('emptyFeed');
+  if(empty)empty.remove();
+  feed.insertBefore(card,feed.firstChild);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){card.classList.add('v');});});
+  clearForm();
+}
+function clearForm(){document.getElementById('pt').value='';document.getElementById('ptg').value='';document.getElementById('pb').value='';pp=Object.create(null);for(var n=1;n<=3;n++){var img=document.getElementById('pa'+n+'i');img.src='';img.style.display='none';document.getElementById('pa'+n+'s').style.display='block';}document.getElementById('pa2').style.display='none';document.getElementById('pa3').style.display='none';}
+function addNext(){var cols=['var(--teal)','var(--purple)','var(--yellow)','var(--green)','var(--peach)'];var li=document.createElement('li');li.className='nitem';li.innerHTML='<span class="ndot" style="background:'+cols[Math.floor(Math.random()*cols.length)]+';"></span><span contenteditable="true">Click to edit this event</span>';document.getElementById('nextList').appendChild(li);li.querySelector('[contenteditable]').focus();}
+</script><script>var _ob=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('v');});},{threshold:.07});document.querySelectorAll('.fi').forEach(function(el){_ob.observe(el);});</script></body></html>

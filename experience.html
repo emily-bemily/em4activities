@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+  <style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{--teal:#4cb7a5;--blue:#5da8ff;--green:#7cc77e;--purple:#a580e2;--yellow:#f2c94c;--peach:#f4b79f;--dark:#1c1c1c;--cream:#fffdf7;--white:#ffffff;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+  ::-webkit-scrollbar{width:14px;}
+  ::-webkit-scrollbar-track{background:var(--yellow);}
+  ::-webkit-scrollbar-thumb{background:var(--purple);border-radius:99px;border:3px solid var(--yellow);min-height:44px;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--teal);}
+  nav{position:sticky;top:0;z-index:200;background:var(--purple);display:flex;justify-content:space-between;align-items:center;padding:0.85rem 2.5rem;border-radius:0 0 20px 20px;border-bottom:3px solid var(--dark);}
+  .nb{text-decoration:none;display:flex;flex-direction:column;line-height:1.1;}
+  .nm{font-size:1.35rem;font-weight:900;color:var(--yellow);letter-spacing:-0.02em;}
+  .ns{font-size:0.68rem;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:0.06em;text-transform:uppercase;}
+  .nl{display:flex;gap:0.35rem;list-style:none;flex-wrap:wrap;}
+  .nl a{text-decoration:none;color:white;font-weight:700;font-size:0.78rem;padding:0.4rem 0.85rem;border-radius:99px;border:2px solid rgba(255,255,255,0.3);transition:background .15s,color .15s;}
+  .nl a:hover,.nl a.active{background:var(--yellow);color:var(--dark);border-color:var(--yellow);}
+  .btn{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.5rem;border-radius:99px;font-family:'Poppins',sans-serif;font-weight:800;font-size:.9rem;text-decoration:none;border:3px solid var(--dark);cursor:pointer;transition:transform .12s,box-shadow .12s;background:none;}
+  .btn:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--dark);}
+  .btn-dark{background:var(--dark);color:var(--yellow);}
+  .btn-white{background:white;color:var(--dark);}
+  .btn-yellow{background:var(--yellow);color:var(--dark);}
+  .btn-green{background:var(--green);color:var(--dark);}
+  .btn-teal{background:var(--teal);color:var(--dark);}
+  [contenteditable]{outline:none;border-radius:8px;transition:box-shadow .2s,background .2s;cursor:text;}
+  [contenteditable]:hover{box-shadow:0 0 0 2px rgba(93,168,255,.5);}
+  [contenteditable]:focus{box-shadow:0 0 0 3px var(--blue);background:rgba(255,255,255,.9)!important;padding:2px 4px;}
+  .etip{font-size:.62rem;font-weight:700;color:var(--blue);opacity:0;letter-spacing:.08em;text-transform:uppercase;transition:opacity .2s;margin-top:.2rem;display:block;pointer-events:none;}
+  .ew:hover .etip,.ew:focus-within .etip{opacity:1;}
+  .fi{opacity:0;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease;}
+  .fi.v{opacity:1;transform:translateY(0);}
+  footer{background:var(--dark);color:rgba(255,255,255,.45);text-align:center;padding:1.2rem;font-size:.78rem;}
+  footer strong{color:var(--yellow);}
+  .photo-slot{border-radius:16px;border:3px solid var(--dark);overflow:hidden;position:relative;cursor:pointer;}
+  .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photo-slot input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2;}
+  .replace-lbl{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.55);color:white;text-align:center;padding:.3rem;font-size:.63rem;font-weight:700;text-transform:uppercase;opacity:0;transition:opacity .2s;}
+  .photo-slot:hover .replace-lbl{opacity:1;}
+  @media(max-width:900px){nav{padding:.75rem 1rem;}.nl a{font-size:.7rem;padding:.3rem .6rem;}}
+  @media(max-width:580px){.nl{gap:.2rem;}.nl a{font-size:.65rem;padding:.25rem .5rem;}}
+  </style><title>Em4Activities - My Journey at Bath</title>
+<style>
+.ehero{background:var(--green);border-bottom:3px solid var(--dark);padding:3rem 2.5rem;}
+.ehero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;margin-bottom:.5rem;max-width:1100px;margin-left:auto;margin-right:auto;}
+.ehero p{font-size:1rem;font-weight:500;line-height:1.7;max-width:1100px;margin:0 auto;}
+.tl-wrap{max-width:820px;margin:0 auto;padding:4rem 2.5rem;}
+.tl{position:relative;}
+.tl::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:4px;background:var(--dark);border-radius:2px;}
+.ti{display:grid;grid-template-columns:56px 1fr;gap:1.4rem;margin-bottom:2.4rem;}
+.tdot{width:56px;height:56px;border-radius:50%;border:4px solid var(--dark);display:flex;align-items:center;justify-content:center;font-size:.73rem;font-weight:900;flex-shrink:0;position:relative;z-index:1;transition:transform .15s;}
+.ti:hover .tdot{transform:scale(1.1);}
+.tcard{background:white;border-radius:20px;border:3px solid var(--dark);padding:1.2rem 1.4rem;transition:transform .15s,box-shadow .15s;}
+.tcard.click{cursor:pointer;}
+.tcard.click:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--dark);}
+.tyear{display:inline-block;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;border-radius:99px;padding:.2rem .7rem;border:2px solid var(--dark);margin-bottom:.45rem;}
+.tcard h3{font-size:.95rem;font-weight:800;margin-bottom:.15rem;}
+.torg{font-size:.73rem;font-weight:700;opacity:.45;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.45rem;}
+.tcard p{font-size:.84rem;line-height:1.65;color:#444;}
+.tmore{font-size:.72rem;font-weight:800;color:var(--blue);margin-top:.55rem;letter-spacing:.04em;text-transform:uppercase;}
+.soc-wrap{max-width:820px;margin:0 auto;padding:0 2.5rem 4rem;}
+.soc-wrap h2{font-size:1.4rem;font-weight:900;margin-bottom:1rem;}
+.soc-chips{display:flex;flex-wrap:wrap;gap:.6rem;}
+.sch{border:3px solid var(--dark);border-radius:99px;padding:.4rem 1rem;font-weight:700;font-size:.82rem;transition:transform .12s,box-shadow .12s;}
+.sch:hover{transform:translate(-2px,-2px) rotate(-2deg);box-shadow:3px 3px 0 var(--dark);}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;padding:1.5rem;}
+.modal-bg.open{display:flex;}
+.modal{background:var(--cream);border-radius:24px;border:3px solid var(--dark);max-width:680px;width:100%;max-height:88vh;overflow-y:auto;}
+.mhead{padding:1.2rem 1.5rem;border-bottom:3px solid var(--dark);display:flex;align-items:center;justify-content:space-between;gap:1rem;position:sticky;top:0;background:var(--cream);border-radius:24px 24px 0 0;}
+.mtitle{font-size:1rem;font-weight:900;}
+.mclose{background:var(--dark);color:var(--yellow);border:none;border-radius:99px;padding:.4rem .95rem;font-family:'Poppins',sans-serif;font-weight:800;cursor:pointer;font-size:.82rem;}
+.mbody{padding:1.5rem;display:flex;flex-direction:column;gap:1.2rem;}
+.mlbl{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;opacity:.5;margin-bottom:.4rem;display:block;}
+.mtext{font-size:.9rem;line-height:1.82;min-height:40px;padding:.6rem .8rem;border-radius:12px;white-space:pre-wrap;}
+.mphotos{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;}
+.mph{aspect-ratio:1;border-radius:12px;border:3px solid var(--dark);overflow:hidden;position:relative;cursor:pointer;background:var(--peach);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#888;flex-direction:column;gap:.2rem;}
+.mph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;}
+.mph input{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2;}
+@media(max-width:580px){.ehero{padding:2rem 1.2rem;}.tl-wrap{padding:2rem 1rem;}.tl::before{left:20px;}.ti{grid-template-columns:44px 1fr;gap:1rem;}.tdot{width:44px;height:44px;}.soc-wrap{padding:0 1.2rem 2.5rem;}.mphotos{grid-template-columns:1fr 1fr;}}
+</style></head><body><nav><a href="index.html" class="nb"><span class="nm">Em4Activities</span><span class="ns">Emily Peddle &middot; she/her</span></a><ul class="nl"><li><a href="index.html" id="n-home">Home</a></li><li><a href="about.html" id="n-about">About</a></li><li><a href="manifesto.html" id="n-manifesto">Manifesto</a></li><li><a href="experience.html" id="n-experience">Experience</a></li><li><a href="campaign.html" id="n-campaign">Campaign</a></li><li><a href="contact.html" id="n-contact">Contact</a></li></ul></nav><script>(function(){var p=(location.pathname.split('/').pop()||'index.html').replace('.html','');var el=document.getElementById('n-'+p);if(el)el.classList.add('active');})();</script>
+<div class="ehero fi"><div style="max-width:1100px;margin:0 auto;">
+  <h1>My Journey at Bath</h1>
+  <p>From fresher to Activities Exec Chair, three years of saying yes to things, meeting brilliant people, and learning how the SU works from the inside. Click any role for more detail.</p>
+</div></div>
+<div class="tl-wrap"><div class="tl" role="list">
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--yellow);">22</div>
+    <div class="tcard"><span class="tyear" style="background:var(--yellow);">Year 1, 2022</span><h3>Arrived at Bath</h3><div class="torg">University of Bath, BSc Social Policy</div><p>Started my Social Policy degree and immediately began collecting societies. First steps into university life, joining Dodgeball, VegSoc, and discovering how much the SU has to offer.</p></div>
+  </div>
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--peach);">Y1</div>
+    <div class="tcard click" onclick="openModal('dodgeball')"><span class="tyear" style="background:var(--peach);">Year 1, 2022-23</span><h3>Recreational Coordinator, Dodgeball Club</h3><div class="torg">University of Bath Students' Union</div><p>First committee role, organising recreational sessions and making everyone feel welcome regardless of skill level.</p><div class="tmore">Click to see more +</div></div>
+  </div>
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--green);">Y2</div>
+    <div class="tcard click" onclick="openModal('vegsoc')"><span class="tyear" style="background:var(--green);">Year 2, 2023</span><h3>Social Media Secretary, VegSoc</h3><div class="torg">University of Bath Students' Union</div><p>Building VegSoc's online presence and keeping members connected between events.</p><div class="tmore">Click to see more +</div></div>
+  </div>
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--teal);">Y2</div>
+    <div class="tcard click" onclick="openModal('actadmin')"><span class="tyear" style="background:var(--teal);">Year 2, 2023 onwards</span><h3>Activities Administrator</h3><div class="torg">Bath SU Activities Office, 2 years</div><p>Supported 150+ student groups with events, ticketing, grants, and the endless stream of questions that comes with running a society.</p><div class="tmore">Click to see more +</div></div>
+  </div>
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--purple);">Y2</div>
+    <div class="tcard click" onclick="openModal('summit')"><span class="tyear" style="background:var(--purple);">Year 2, 2023-24</span><h3>SUmmit Member</h3><div class="torg">University of Bath Students' Union</div><p>Contributing to student leadership and cross-society work across the university.</p><div class="tmore">Click to see more +</div></div>
+  </div>
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--blue);">Y2</div>
+    <div class="tcard click" onclick="openModal('mentor')"><span class="tyear" style="background:var(--blue);">Years 2 and 3, 2023-25</span><h3>Lead Peer Mentor</h3><div class="torg">University of Bath</div><p>Supported incoming students through the transition to university life, helping them find their footing and their communities at Bath.</p><div class="tmore">Click to see more +</div></div>
+  </div>
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--yellow);">S25</div>
+    <div class="tcard click" onclick="openModal('insights')"><span class="tyear" style="background:var(--yellow);">Summer 2025</span><h3>Bath Insights Internship, ResLife Department</h3><div class="torg">University of Bath</div><p>Worked on the International Arrivals Welcome project in the ResLife department. Collected feedback that helped inform the No Plates Like Home initiative in campus outlets.</p><div class="tmore">Click to see more +</div></div>
+  </div>
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--peach);">Y3</div>
+    <div class="tcard click" onclick="openModal('crochet')"><span class="tyear" style="background:var(--peach);">Year 3, 2024-25</span><h3>Chair, Crochet and Knit Society</h3><div class="torg">University of Bath Students' Union</div><p>Running sessions, growing membership, and keeping the society welcoming, creative, and a good place to be.</p><div class="tmore">Click to see more +</div></div>
+  </div>
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--teal);">Now</div>
+    <div class="tcard click" style="border-color:var(--teal);" onclick="openModal('execchair')"><span class="tyear" style="background:var(--teal);">Year 3, Current</span><h3>Chair, Activities Executive Committee</h3><div class="torg">Bath SU, current role</div><p>Leading the committee that shapes activities policy across the SU, working with societies, sports clubs, and the wider university.</p><div class="tmore">Click to see more +</div></div>
+  </div>
+
+  <div class="ti fi" role="listitem">
+    <div class="tdot" style="background:var(--yellow);">Next</div>
+    <div class="tcard" style="background:var(--yellow);"><span class="tyear" style="background:var(--dark);color:var(--yellow);">2025, next step</span><h3>SU Activities Officer</h3><div class="torg">That's what I'm running for</div><p>Before I'm yeeted into the void post-graduation, I want to put everything I've learned to work, for you. Vote Em4Activities.</p></div>
+  </div>
+
+</div></div>
+<div class="soc-wrap fi"><h2>Societies I've been part of</h2><div class="soc-chips">
+  <span class="sch" style="background:var(--yellow);">VegSoc</span>
+  <span class="sch" style="background:var(--peach);">Crochet and Knit, Chair</span>
+  <span class="sch" style="background:var(--teal);color:white;">Dodgeball</span>
+  <span class="sch" style="background:var(--purple);color:white;">SUmmit</span>
+  <span class="sch" style="background:var(--blue);color:white;">Lead Peer Mentoring</span>
+  <span class="sch" style="background:var(--green);">Salsa</span>
+</div></div>
+<div class="modal-bg" id="mbg" onclick="bgClose(event)">
+  <div class="modal" id="mbox">
+    <div class="mhead"><div class="mtitle" id="mtitle">Role</div><button class="mclose" onclick="closeModal()">Close</button></div>
+    <div class="mbody" id="mbody"></div>
+  </div>
+</div><footer><strong>Em4Activities</strong> &nbsp;&middot;&nbsp; Emily Peddle &nbsp;&middot;&nbsp; University of Bath SU Elections 2026</footer>
+<script>
+var rd={
+  dodgeball:{title:'Recreational Coordinator, Dodgeball Club',colour:'var(--peach)',text:'Add detail about what you did in this role. Describe specific sessions you organised, things you are proud of, and moments that stood out. This text is fully editable, just click it.'},
+  vegsoc:{title:'Social Media Secretary, VegSoc',colour:'var(--green)',text:'Describe your social media work here. What content did you create? How did engagement grow? What are you proud of? Click to edit this text.'},
+  actadmin:{title:'Activities Administrator, Bath SU',colour:'var(--teal)',text:'Two years supporting 150+ groups. Write about specific projects, events you helped run, improvements you made, or things students told you were helpful. Click to edit.'},
+  summit:{title:'SUmmit Member',colour:'var(--purple)',text:'Describe your involvement with SUmmit, what you contributed, what you learned, and what you are proud of. Click to edit this text.'},
+  mentor:{title:'Lead Peer Mentor',colour:'var(--blue)',text:'Write about your mentoring work here. Specific students you supported, the programme structure, and outcomes you are proud of. Click to edit.'},
+  insights:{title:'Bath Insights Internship, ResLife Department',colour:'var(--yellow)',text:'Summer 2025, ResLife department. I worked on the International Arrivals Welcome project, collecting feedback from international students about their arrival experience at Bath. The feedback I gathered helped inform the No Plates Like Home initiative, which brought more culturally diverse food options into campus outlets.
+
+Add more about what your day-to-day looked like, who you worked with, and what you took away from the experience. Click to edit.'},
+  crochet:{title:'Chair, Crochet and Knit Society',colour:'var(--peach)',text:'Describe your time as chair here. How did you grow the society? What sessions did you run? What made you proud? Click to edit.'},
+  execchair:{title:'Chair, Activities Executive Committee',colour:'var(--teal)',text:'Your current role. What has the committee worked on this year? What decisions have you been part of shaping? What are you most proud of? Click to edit.'}
+};
+function openModal(id){
+  var role=rd[id];
+  document.getElementById('mtitle').textContent=role.title;
+  document.getElementById('mbg').classList.add('open');
+  var body=document.getElementById('mbody');body.innerHTML='';
+  var s1=document.createElement('div');
+  var l1=document.createElement('span');l1.className='mlbl';l1.textContent='About this role (click to edit)';
+  var txt=document.createElement('div');txt.className='mtext ew';txt.contentEditable='true';txt.style.background=role.colour;txt.textContent=role.text;
+  var et=document.createElement('span');et.className='etip';et.textContent='click to edit';
+  s1.appendChild(l1);s1.appendChild(txt);s1.appendChild(et);
+  txt.addEventListener('input',function(){role.text=txt.textContent;});
+  body.appendChild(s1);
+  var s2=document.createElement('div');
+  var l2=document.createElement('span');l2.className='mlbl';l2.textContent='Photos from this role (click to add)';
+  var grid=document.createElement('div');grid.className='mphotos';
+  for(var i=0;i<3;i++){
+    var slot=document.createElement('div');slot.className='mph';
+    var inp=document.createElement('input');inp.type='file';inp.accept='image/*';
+    var img=document.createElement('img');img.alt='Role photo';
+    var tx=document.createTextNode('+ add photo');
+    slot.appendChild(inp);slot.appendChild(img);slot.appendChild(tx);
+    (function(sl,im,tx2,fi){fi.addEventListener('change',function(){var f=fi.files[0];if(!f)return;var r=new FileReader();r.onload=function(e){im.src=e.target.result;im.style.display='block';tx2.textContent='';};r.readAsDataURL(f);});})(slot,img,tx,inp);
+    grid.appendChild(slot);
+  }
+  s2.appendChild(l2);s2.appendChild(grid);body.appendChild(s2);
+}
+function closeModal(){document.getElementById('mbg').classList.remove('open');}
+function bgClose(e){if(e.target===document.getElementById('mbg'))closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script><script>var _ob=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('v');});},{threshold:.07});document.querySelectorAll('.fi').forEach(function(el){_ob.observe(el);});</script></body></html>
